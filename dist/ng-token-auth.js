@@ -153,7 +153,7 @@ angular.module('ng-token-auth', ['ipCookie']).provider('$auth', function() {
               }
             },
             addScopeMethods: function() {
-              $rootScope.user = this.user;
+              $rootScope.tokenUser = this.user;
               $rootScope.authenticate = angular.bind(this, this.authenticate);
               $rootScope.signOut = angular.bind(this, this.signOut);
               $rootScope.destroyAccount = angular.bind(this, this.destroyAccount);

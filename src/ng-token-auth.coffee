@@ -170,7 +170,7 @@ angular.module('ng-token-auth', ['ipCookie'])
           # make all public API methods available to directives
           addScopeMethods: ->
             # bind global user object to auth user
-            $rootScope.user = @user
+            $rootScope.tokenUser = @user
 
             # template access to authentication method
             $rootScope.authenticate  = angular.bind(@, @authenticate)
@@ -813,7 +813,7 @@ angular.module('ng-token-auth', ['ipCookie'])
               c ?= JSON.parse($window.localStorage.getItem(key))
             else if @hasSessionStorage()
               c ?= JSON.parse($window.sessionStorage.getItem(key))
-            
+
             c ?= ipCookie(key)
 
             return c || defaultConfigName
